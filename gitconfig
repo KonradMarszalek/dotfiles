@@ -1,5 +1,6 @@
 [core]
 	pager = diff-so-fancy | less --tabs=4 -RFX
+	excludesfile = ~/.gitignore
 [interactive]
 	diffFilter = diff-so-fancy --patch
 [color]
@@ -26,7 +27,7 @@
 	email = konrad.marszalek@gmail.com
 [alias]
 	co = checkout
-	cop = !(git branch | fzf --height=20% --reverse --info=inline | xargs git checkout)
+	cop = !git checkout $(git branch | fzf --height=20% --reverse --info=inline)
 	cm = !git add -A && git commit -m
 	cma = !git add -A && git commit --amend --no-edit
 	pl = pull
