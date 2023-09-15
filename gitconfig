@@ -1,0 +1,40 @@
+[core]
+	pager = diff-so-fancy | less --tabs=4 -RFX
+[interactive]
+	diffFilter = diff-so-fancy --patch
+[color]
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	func = 146 bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[hub]
+	protocol = ssh
+[blame]
+	ignoreRevsFile = .git-blame-ignore-revs
+[user]
+	name = Konrad Marszałek
+	email = konrad.marszalek@gmail.com
+[alias]
+	co = checkout
+	cop = !(git branch | fzf --height=20% --reverse --info=inline | xargs git checkout)
+	cm = !git add -A && git commit -m
+	cma = !git add -A && git commit --amend --no-edit
+	pl = pull
+	pr = pull --rebase
+	ps = push
+	ls = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+	cp = cherry-pick
+	st = status -s
+	diff = diff --word-diff --staged
+	clr	= clean -dfx
+	ec = config --global -e
